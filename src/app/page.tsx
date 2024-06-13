@@ -1,6 +1,7 @@
 "use client";
 
 import Sidebar from "./components/Sidebar";
+import BoardTasks from "./components/BoardTasks";
 import { collection, getDocs, addDoc } from "firebase/firestore";
 import { db } from "./utils/firebaseConfig";
 import { useEffect, useState } from "react";
@@ -20,6 +21,7 @@ export default function Home() {
   return (
     <main className="flex h-full">
       <Sidebar />
+      <BoardTasks />
     </main>
   )
 }
