@@ -18,6 +18,35 @@ export default function Home() {
     }
   };
 
+  const handleAddDoc = async () => {
+    if (userDetails) {
+
+      const docRef = collection(db, "users", userDetails.email, "tasks");
+      const getDos = await getDocs(docRef);
+
+      if (getDos.docs.length > 0) {
+        return;
+      } else {
+        try {
+          await addDoc(
+            collection(db, "users", userDetails.email, "tasks"),
+            data
+          );
+        } catch (error) {
+          console.error("Error adding document: ", error);
+        }
+      }
+    }
+  };
+
+  useEffect(() => {
+    getUserSession();
+  }, []);
+
+  useEffect(() => {
+    handleAddDoc();
+  }, [userDetails]);
+
   return (
     <main className="flex h-full">
       <Sidebar />
