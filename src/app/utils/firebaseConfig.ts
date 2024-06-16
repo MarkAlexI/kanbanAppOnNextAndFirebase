@@ -2,15 +2,15 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: process.env.FB_API_KEY,
-  authDomain: process.env.FB_AUTH_DOMAIN,
-  projectId: process.env.FB_PROJECT_ID,
-  storageBucket: process.env.FB_STORAGE_BUCKET,
-  messagingSenderId: process.env.FB_MESSAGING_SENDER_ID,
-  appId: process.env.FB_APP_ID,
-  measurementId: process.env.FB_MEASUREMENT_ID
+  apiKey: process.env.fb_api_key,
+  authDomain: process.env.fb_auth_domain,
+  projectId: process.env.fb_project_id,
+  storageBucket: process.env.fb_storage_bucket,
+  messagingSenderId: process.env.fb_messaging_sender_id,
+  appId: process.env.fb_app_id,
+  measurementId: process.env.fb_measurement_id
 };
-console.log(process.env.FB_AUTH_DOMAIN, "#");
+
 const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
