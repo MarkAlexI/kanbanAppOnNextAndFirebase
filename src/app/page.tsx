@@ -2,6 +2,7 @@
 
 import Sidebar from "./components/Sidebar";
 import BoardTasks from "./components/BoardTasks";
+import AddAndEditBoardModal from "./components/AddAndEditBoardModal";
 import { collection, getDocs, addDoc } from "firebase/firestore";
 import { db } from "./utils/firebaseConfig";
 import { useEffect, useState } from "react";
@@ -51,6 +52,7 @@ export default function Home() {
     <main className="flex h-full">
       <Sidebar />
       <BoardTasks />
+      <AddAndEditBoardModal />
     </main>
   )
 }
