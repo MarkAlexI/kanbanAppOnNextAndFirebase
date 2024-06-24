@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useFetchDataFromDbQuery } from "@/components/redux/services/apiSlice";
-import { useAppSelector } from "@/components/redux/hooks";
-import { getCurrentBoardName } from "@/components/redux/features/appSlice";
+import { useAppSelector, useAppDispatch } from "@/components/redux/hooks";
+import { getCurrentBoardName, openAddAndEditBoardModal } from "@/components/redux/features/appSlice";
 import { MdEdit, MdDelete } from "react-icons/md";
 
 interface ITask {
@@ -20,6 +20,7 @@ export default function BoardTasks() {
   const { isLoading, data } = useFetchDataFromDbQuery();
   const [columns, setColumns] = useState<Column[]>([]);
   const activeBoard = useAppSelector(getCurrentBoardName);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (data !== undefined) {
@@ -75,7 +76,9 @@ export default function BoardTasks() {
                 );
               })}
               {columns.length < 5 ? (
-                <div className="rounded-md bg-white w-[17.5rem] mt-12 shrink-0 flex justify-center items-center">
+                <div
+                  onClick={() => dispatch(openAddAndEditBoardModal("Edit Board"))}
+                  className="rounded-md bg-white w-[17.5rem] mt-12 shrink-0 flex justify-center items-center">
                   <p className="cursor-pointer font-bold text-black text-2xl">
                     + New Column
                   </p>
