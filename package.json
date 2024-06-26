@@ -1,7 +1,7 @@
 {
   "author": "markalexi",
   "name": "kanban_app_on_next_and_firebase",
-  "version": "0.21.2",
+  "version": "0.22.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
